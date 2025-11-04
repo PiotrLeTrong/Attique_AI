@@ -7,8 +7,6 @@ Created on Tue Nov  4 10:02:59 2025
 import os
 from pathlib import Path
 import pdfplumber, json, pandas as pd
-path = "C:\\Users\\wb506337\\OneDrive - WBG\\AI_Bready_2026"
-os.chdir(path)
 from openai import OpenAI
 
 print(os.getenv("OPENAI_API_KEY"))
@@ -114,3 +112,4 @@ usage = response.usage
 print("Prompt tokens:", usage.input_tokens)
 print("Output tokens:", usage.output_tokens)
 print("Total tokens:", usage.total_tokens)
+
