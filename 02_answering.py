@@ -6,15 +6,13 @@ from datetime import datetime, timezone
 from tenacity import retry, stop_after_attempt, wait_exponential
 from openai import OpenAI
 
-path = "C:\\Users\\wb506337\\OneDrive - WBG\\AI_Bready_2026"
-os.chdir(path)
 
 ## The idea was to convert the csv into data frame and that into a JSON element that can be appended on a 1 row at a time instance. 
 ## I had also had the idea to do it in list. 
 ## somehow I can't get past looping the JSON into the API
 
 print(os.getenv("OPENAI_API_KEY"))
-#client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 csv_path = "./01_data/02_inter/WBL_Labor_survey_output.csv"
 out_path = "./01_data/02_inter/WBL_Labor_survey_output_AI_Answers_USA.csv"
@@ -155,5 +153,6 @@ for idx, q in enumerate(data, start=1):
 # -------------------------------
 with open("questions_with_ai.json", "w", encoding="utf-8") as f:
     json.dump(updated_records, f, indent=2, ensure_ascii=False)
+
 
 print("\n✅ All done! New file: questions_with_ai.json")
